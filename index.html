@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS531 - Code Review Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CS531 Class Homework Sharing Dashboard</h1>
+        <p>Upload and review different solutions for code review</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#problems" onclick="showSection('problems')">Problems</a></li>
+            <li><a href="#upload" onclick="showSection('upload')">Upload Solution</a></li>
+            <li><a href="#review" onclick="showSection('review')">Code Review</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Problems Section -->
+        <section id="problems" class="content-section">
+            <h2>Available Problems</h2>
+            <div id="problems-list">
+                <!-- Problems will be loaded dynamically -->
+            </div>
+            <button onclick="addNewProblem()" class="btn btn-primary">Add New Problem</button>
+        </section>
+
+        <!-- Upload Section -->
+        <section id="upload" class="content-section" style="display: none;">
+            <h2>Upload Solution</h2>
+            <form id="upload-form">
+                <div class="form-group">
+                    <label for="problem-select">Select Problem:</label>
+                    <select id="problem-select" required>
+                        <option value="">-- Select a Problem --</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="student-name">Your Name:</label>
+                    <input type="text" id="student-name" required placeholder="Enter your name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="solution-description">Solution Description:</label>
+                    <textarea id="solution-description" placeholder="Describe your approach or any notes about your solution"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="code-input">Paste Your Code:</label>
+                    <textarea id="code-input" required placeholder="Paste your solution code here..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="language-select">Programming Language:</label>
+                    <select id="language-select">
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="cpp">C++</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="c">C</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Upload Solution</button>
+            </form>
+        </section>
+
+        <!-- Review Section -->
+        <section id="review" class="content-section" style="display: none;">
+            <h2>Code Review</h2>
+            <div class="review-filters">
+                <select id="review-problem-filter">
+                    <option value="">-- All Problems --</option>
+                </select>
+                <select id="review-language-filter">
+                    <option value="">-- All Languages --</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="cpp">C++</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="c">C</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div id="solutions-list">
+                <!-- Solutions will be loaded dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
